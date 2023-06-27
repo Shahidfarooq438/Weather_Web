@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    background: url(images/bg.svg) no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*---------------- Navbar ------------------- */
+.navbar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 0.5em 1em;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+}
+
+form {
+    display: flex;
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 300px;
+}
+
+form>button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.locationInput {
+    font-size: 16px;
+    padding: 0.5em 0.8em;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: transparent;
+    width: 300px;
+}
+
+.locationInput:focus {
+    background-color: rgb(0, 0, 0, 0.3);
+}
+
+.icon {
+    color: rgb(255, 255, 255, 0.5);
+    padding: 0.3em 0.5em;
+    border-radius: 50%;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.icon:hover {
+    color: rgb(255, 255, 255, 0.9);
+
+}
+
+/* ---------------- Main ----------------- */
+.main {
+    max-width: 1280px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 300px;
+    grid-gap: 1rem;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gridTile {
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5em;
+}
+
+.gridTileName {
+    grid-column: span 3;
+}
+
+.forecastTileName{
+    display: flex;
+    justify-content: space-between;
+}
+
+.currentWeather {
+    height: 300px;
+    grid-column: span 2;
+    padding: 1em 1.4em;
+    background: url(images/01d.jpg) no-repeat center center/cover;
+    position: relative;
+}
+
+#location {
+    font-size: 1.5rem;
+}
+
+#dateTime {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    margin: 0.4em;
+    float: right;
+    font-size: smaller;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0.066);
+    border-radius: 0.25em;
+}
+
+.weatherInfo {
+    display: flex;
+    align-items: center;
+    font-size: 3.4rem;
+    position: relative;
+    left: -0.8rem;
+}
+
+#weatherIcon {
+    width: 100px;
+}
+
+.weatherProperties {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 4em;
+    grid-column: span 2;
+    padding: 1.5em 2em;
+    font-size: 0.7em;
+}
+
+.weatherProperties>div {
+    margin: auto;
+    width: 70px;
+}
+
+.weatherProperties>div>img {
+    width: 40px;
+    margin-bottom: 0.5em;
+}
+
+.suggestions {
+    grid-row: span 2;
+}
+
+.suggestions>p {
+    padding: 1em;
+    font-size: small;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.suggestionContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+    grid-gap: 1em;
+    font-size: small;
+    text-align: center;
+}
+
+.item {
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0.5em;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.item>img {
+    width: 40px;
+    margin-bottom: 0.5em;
+}
+
+.forecastContainer {
+    grid-column: span 3;
+    display: flex;
+    gap: 1em;
+    background-color: transparent;
+    box-shadow: none;
+    overflow-x: scroll;
+    border-radius: 0;
+}
+
+.forecastContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.forecastTile {
+    min-width: 250px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0.5em;
+    text-align: center;
+    padding-bottom: 0.4em;
+}
+
+.forecastTile>img {
+    width: 80px;
+}
+
+.forecastTile>p {
+    margin-bottom: 0.5em;
+}
+
+.forecastTile:nth-child(1) {
+    min-width: 300px;
+}
+
+@media only screen and (max-width: 850px) {
+
+    .currentWeather {
+        grid-column: span 3;
+    }
+
+    .suggestions {
+        grid-row: span 1;
+        grid-column: span 3;
+        justify-content: center;
+    }
+
+    .weatherProperties {
+        grid-column: span 3;
+    }
+    .main{
+        padding: 1rem;
+    }
+}
+
+.footer{
+    padding: 0.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    overflow-wrap: break-word;
+}
+
+.footer>p>a{
+    color: rgba(255, 0, 0);
+    padding: 0.5rem;
+    font-size: small;
+}
+#weatherDescription{
+    position: absolute;
+    bottom: 1rem;
+    margin: 0.4em 0;
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0.066);
+    font-size: smaller;
+    border-radius: 0.25em;
+}
